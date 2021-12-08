@@ -5,10 +5,10 @@ const router = express.Router();
 const { AdAccountWebhookController } = require("../services");
 
 // routes
-router.get("/ad-accounts", AdAccountWebhookController.webhookInit);
+router.get("/", AdAccountWebhookController.webhookInit);
 
 // Listen to events
-router.post("/ad-accounts", AdAccountWebhookController.webhookReceiver);
+router.post("/", AdAccountWebhookController.webhookReceiver);
 
 module.exports = router;
 

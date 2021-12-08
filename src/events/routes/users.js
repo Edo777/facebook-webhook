@@ -5,10 +5,10 @@ const router = express.Router();
 const { UserWebhookController } = require("../services");
 
 // routes
-router.get("/users", UserWebhookController.webhookInit);
+router.get("/", UserWebhookController.webhookInit);
 
 // Listen to events
-router.post("/users", UserWebhookController.webhookReceiver);
+router.post("/", UserWebhookController.webhookReceiver);
 
 module.exports = router;
 

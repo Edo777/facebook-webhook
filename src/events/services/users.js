@@ -9,6 +9,7 @@ const {FACEBOOK_WEBHOOK_VERIFY_TOKEN} = process.env;
  */
 async function webhookInit(req, res, next) {
     try {
+        
         const hubMode = req.query["hub.mode"];
         const challenge = req.query["hub.challenge"];
         const verifyToken = req.query["hub.verify_token"];
@@ -16,7 +17,7 @@ async function webhookInit(req, res, next) {
         if(hubMode !== "subscribe" || FACEBOOK_WEBHOOK_VERIFY_TOKEN !== verifyToken) {
             return res.status(400).send("");
         }
-
+        
         return res.status(200).send(challenge);
     } catch (error) {
         next(error);
